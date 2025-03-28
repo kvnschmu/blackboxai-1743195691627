@@ -1,0 +1,14 @@
+{
+  "name": "tempmail-server",
+  "version": "1.0.0",
+  "description": "Ein temporärer E-Mail-Server mit dropmail.me API Integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^2.6.12"
+  }
+}
