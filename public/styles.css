@@ -1,0 +1,137 @@
+/* Custom styles zusätzlich zu Tailwind CSS */
+
+/* Grundlegende Stile */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Animation für das Laden der E-Mail-Adresse */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#emailDisplay.show {
+    display: block !important;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Message Card Styles */
+.message-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.message-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Modal Animation */
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#messageModal.show {
+    display: flex !important;
+}
+
+#messageModal.show > div {
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+/* Loading Spinner Animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#loadingSpinner.show {
+    display: flex !important;
+}
+
+/* Button hover effect */
+.btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+
+.btn-hover-effect:active::after {
+    width: 200%;
+    height: 200%;
+}
+
+/* Responsive Design Anpassungen */
+@media (max-width: 640px) {
+    header {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    header h1 {
+        font-size: 1.875rem;
+    }
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Verbesserte Lesbarkeit für E-Mail-Adressen */
+.email-text {
+    font-family: 'Courier New', monospace;
+    word-break: break-all;
+}
+
+/* Toast Benachrichtigungen */
+.toast {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 50;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Verbessertes Scrollverhalten für die Modal-Box */
+.modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 3px;
+}
